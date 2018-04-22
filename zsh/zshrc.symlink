@@ -5,8 +5,6 @@ ZSH_THEME="agnoster"
 
 plugins=(git brew bundler bower heroku cap docker gem git-flow meteor tmux npm osx rails rvm vagrant zsh-syntax-highlighting z web-search nvm zsh-completions yarn docker-compose)
 
-source ~/.kube-comp
-
 # prompt
 export RPS1='$(rvm_prompt_info)'
 export ZSH_TMUX_AUTOSTART=true
@@ -25,9 +23,9 @@ fi
 
 export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/texlive/2013/bin/x86_64-darwin:./bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="~/bin:$PATH"
-export PATH="$HOME/jam/TT/cmd:$HOME/jam/TT/bin:$PATH"
-export DEFAULT_USER="Zaratan"
+export PATH="$HOME/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export DEFAULT_USER="matthieu"
 
 if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
@@ -41,45 +39,15 @@ else
 fi
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/zaratan"
+export SSH_KEY_PATH="~/.ssh/matthieu"
 #z
 
 # eval `gdircolors ~/.dircolors.256dark`
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/Zaratan/Gcloud/path.zsh.inc ]; then
-  source '/Users/Zaratan/Gcloud/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/Zaratan/Gcloud/completion.zsh.inc ]; then
-  source '/Users/Zaratan/Gcloud/completion.zsh.inc'
-fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH=./node_modules/.bin:$PATH
 
+# android
+export ANDROID_HOME=/usr/local/share/android-sdk
+
 eval $(thefuck --alias)
-
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc

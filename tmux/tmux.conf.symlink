@@ -14,8 +14,8 @@ setw -g pane-base-index 1
 bind r source-file ~/.tmux.conf \; display "Configuration reloaded!"
 
 #splitting
-bind | split-window -h -c '#{pane_current_path}'
-bind _ split-window -v -c '#{pane_current_path}'
+bind ) split-window -h -c '#{pane_current_path}'
+bind - split-window -v -c '#{pane_current_path}'
 
 #moving through pane
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
@@ -86,7 +86,7 @@ set -g status-right-length 70
 
 #notifications
 setw -g monitor-activity on
-set -g visual-activity off
+set -g visual-activity on
 
 #copy-vi style
 # List of plugins
