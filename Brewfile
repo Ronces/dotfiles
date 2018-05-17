@@ -26,6 +26,7 @@ brew "mplayershell"
 brew "mysql"
 brew "nmap", link: false
 brew "node"
+brew "nvm"
 brew "openssl@1.1"
 brew "pulseaudio", restart_service: true
 brew "reattach-to-user-namespace"
