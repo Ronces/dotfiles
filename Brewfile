@@ -63,4 +63,3 @@ cask "zotero"
 
 mas "Colors", id: 581915465
 mas "iLightShow", id: 1217138942
-mas "Simple Recorder", id: 989175722
