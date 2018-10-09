@@ -44,3 +44,6 @@ alias hue_salon="hue light 1"
 
 # spotify
 alias sp="~/bin/spotify"
+
+# brew
+alias bu='brew upgrade --cleanup && brew cask upgrade'
