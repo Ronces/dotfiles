@@ -3,5 +3,9 @@
 # command line interface to it that we can use to just install everything, so
 # yeah, let's do that.
 
-echo "› sudo softwareupdate -i -a"
-sudo softwareupdate -i -a
+echo "apt-get update"
+sudo apt-get update
+
+echo "apt-get upgrade"
+sudo apt-get upgrade
+

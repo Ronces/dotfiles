@@ -6,10 +6,17 @@ set -e
 
 cd "$(dirname $0)"/..
 
-# Run Homebrew through the Brewfile
-echo "› brew bundle"
-brew bundle
-ln -s `pwd`/bin ~/bin
+# update cache
+sudo apt-get update
+# install things in aptfile
+echo "install things in aptfile"
+sudo ./install/apt/APTfile
+# install personnal binaries
+echo "install personnal binaries"
+ln -s ~/dotfiles/install/bin ~/bin
 # find the installers and run them iteratively
+echo "find the installers and run them iteratively"
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+# install oh-my-zsh
+echo "install oh-my-zsh"
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
