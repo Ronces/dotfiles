@@ -10,7 +10,7 @@ cd "$(dirname $0)"/..
 sudo apt-get update
 # install things in aptfile
 echo "install things in aptfile"
-sudo ./install/apt/APTfile
+sudo ./install/pac/PACfile
 # install personnal binaries
 echo "install personnal binaries"
 ln -s ~/dotfiles/install/bin ~/bin
