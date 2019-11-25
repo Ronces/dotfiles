@@ -1,0 +1,22 @@
+pacman -S coreutils
+pacman -S curl
+pacman -S git
+pacman -S libtool
+pacman -S htop
+pacman -S lftp
+pacman -S mplayer
+#pacman -S mysql
+#pacman -S nvm
+pacman -S sqlite
+pacman -S tmux
+pacman -S vim
+pacman -S wget
+pacman -S zsh
+
+pacman -S calibre
+pacman -S deluge                   # deluge : torrent client
+#pacman -S dropbox
+#pacman -S skype
+pacman -S steam
+pacman -S vlc
+#pacman -S zotero
