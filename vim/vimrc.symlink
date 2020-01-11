@@ -46,13 +46,14 @@ inoremap <C-t>  <Esc>:tabnew<CR>
 
 filetype off          " required!
 
-
-
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 "let Vundle manage Vundle
 "required!
+
+Plugin 'VundleVim/Vundle.vim'
+
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-bundler'
@@ -77,6 +78,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-es2015-snippets'
 Plugin 'epilande/vim-react-snippets'
 Bundle 'christoomey/vim-tmux-navigator'
+call vundle#end()
+filetype plugin indent on     " required!
 
 " Rename.vim  -  Rename a buffer within Vim and on the disk
 "
@@ -197,4 +200,3 @@ let g:ale_linters = {
 
 let g:used_javascript_libs = 'jquery,underscore'
 let g:tex_flavor = "latex"
-filetype plugin indent on     " required!
