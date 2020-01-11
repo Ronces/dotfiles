@@ -23,6 +23,7 @@ bzip2
 cantarell-fonts
 catfish
 coreutils
+cowpatty
 cpupower
 crda
 cronie
@@ -33,12 +34,14 @@ cups-pk-helper
 dbus-x11
 device-mapper
 dhclient
+dhcp
 dhcpcd
 diffutils
 dmidecode
 dmraid
 dnsmasq
 dosfstools
+dsniff
 e2fsprogs
 ecryptfs-utils
 efibootmgr
@@ -95,6 +98,7 @@ gvfs-smb
 gzip
 haveged
 hexchat
+hostapd
 hplip
 htop
 inetutils
@@ -132,12 +136,14 @@ light-locker
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
+lighttpd
 linux-firmware
 linux54
 logrotate
 lsb-release
 lvm2
 m4
+macchanger
 make
 man-db
 man-pages
@@ -157,6 +163,8 @@ manjaro-wallpapers-18.0
 manjaro-xfce-gtk3-settings
 matcha-gtk-theme
 mdadm
+mdk3
+mdk4
 memtest86+
 menulibre
 mesa-demos
@@ -179,6 +187,7 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
+nmap
 noto-fonts
 noto-fonts-cjk
 nss-mdns
@@ -199,6 +208,7 @@ pavucontrol
 pciutils
 perl
 perl-file-mimeinfo
+php-cgi
 pidgin
 pkgconf
 poppler-data
@@ -209,6 +219,7 @@ psmisc
 pulseaudio-bluetooth
 pulseaudio-ctl
 pulseaudio-zeroconf
+pyrit
 python-pillow
 python-pip
 python-pyqt5
