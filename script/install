@@ -7,10 +7,10 @@ set -e
 cd "$(dirname $0)"/..
 
 # update cache
-sudo apt-get update
+sudo pacman -Sy
 # install things in aptfile
-echo "install things in aptfile"
-sudo ./install/pac/PACfile
+echo "install things in pkglist.txt"
+sudo pacman -S - < pkglist.txt
 # install personnal binaries
 echo "install personnal binaries"
 ln -s ~/dotfiles/install/bin ~/bin
