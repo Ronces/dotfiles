@@ -167,8 +167,8 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
-set background=dark " dark | light "
-colorscheme solarized
+"set background=dark " dark | light "
+"colorscheme solarized
 
 " Tab completion
 set complete=.,w,t,b,i
