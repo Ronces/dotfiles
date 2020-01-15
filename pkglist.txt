@@ -36,6 +36,7 @@ device-mapper
 dhclient
 dhcp
 dhcpcd
+dialog
 diffutils
 dmidecode
 dmraid
@@ -180,6 +181,7 @@ mplayer
 mtpfs
 mugshot
 nano
+netctl
 network-manager-applet
 networkmanager
 networkmanager-openconnect
@@ -254,6 +256,7 @@ thunar-media-tags-plugin
 thunar-volman
 thunderbird
 timeshift
+tldr
 tlp
 tmux
 ttf-bitstream-vera
