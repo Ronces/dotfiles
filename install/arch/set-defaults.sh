@@ -7,5 +7,7 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
-# Add special ubuntu stuff beyond
-# Disable press-and-hold for keys in favor of key repeat.
+# Add special arch stuff beyond
+
+# disable beep
+sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
