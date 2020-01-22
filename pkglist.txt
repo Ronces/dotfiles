@@ -1,7 +1,3 @@
-thefuck
-tldr
-curl
-
 # display
 
 i3-gaps   # same as i3-wm, but with gaps
