@@ -4,20 +4,31 @@ i3-gaps   # same as i3-wm, but with gaps
 dmenu     # app launcher for i3-gaps
 picom     # compositor for i3-gaps
 
-# basic tools
+# periphériques
+pavucontrol  # controle du son
+blueman      # gestion bluetooth
+
+# terminal
 git
 zsh
 vim
 tmux
+xfce4-terminal
+
+# admin tool
 gparted
 htop
-firefox
-curl
-xfce4-terminal
 
 # smart tools
 thefuck
 tldr
+
+# dev
+curl
+code
+
+# internet
+firefox
 
 # entertainment
 # steam
