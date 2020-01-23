@@ -1,5 +1,4 @@
 # display
-
 i3-gaps   # same as i3-wm, but with gaps
 dmenu     # app launcher for i3-gaps
 picom     # compositor for i3-gaps
