@@ -6,3 +6,8 @@
 echo "pacman -Suy"
 sudo pacman -Suy
 
+
+echo "installing yay"
+git clone https://aur.archlinux.org/yay.git | makepkg -si
+echo "cleaning after install..."
+rm -rf yay
