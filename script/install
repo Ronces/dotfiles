@@ -21,6 +21,6 @@ find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
 echo "install oh-my-zsh"
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 # add some custom plugins
-echo "add some custom plugins"
+echo "add some custom plugins for oh-my-zsh"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
