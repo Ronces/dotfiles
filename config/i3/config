@@ -205,7 +205,7 @@ bindsym $mod+Shift+i split v; exec --no-startup-id firefox
 exec --no-startup-id picom
 
 #wallpaper
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/wallpapers-2018/mountains-1412683.jpg
+exec --no-startup-id feh --bg-scale ~/dotfiles/mountains-1412683.jpg
 
 # Multi monitor workspace
 workspace 1 output primary
