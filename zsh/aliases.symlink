@@ -1,0 +1,16 @@
+# Unix
+alias tlf="tail -f"
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias l='ls --color=auto'
+alias ll='ls -al'
+alias lh='ls -Alh'
+alias vimo='vim -O'
+alias e="vim"
+alias v="vim"
+alias s="z s"
+
+# Practical
+alias f=fuck
+alias vim="vim -O"
+

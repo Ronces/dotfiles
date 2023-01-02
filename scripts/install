@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Run all dotfiles installers.
+
+set -e
+
+cd "$(dirname $0)"/..
+
+# Run Apt through the packages list
+echo "sudo xargs -a packages_list.txt apt install"
+sudo xargs -a packages_list.txt apt install
+
+if [[ ! -L ~/bin ]]; then
+  ln -s `pwd`/bin ~/bin
+fi
+# find the installers and run them iteratively
+find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+if [[ ! -d ~/.oh-my-zsh ]]; then
+  curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+fi
+
