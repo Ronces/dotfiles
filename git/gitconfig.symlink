@@ -38,3 +38,6 @@
 
 [init]
 	defaultBranch = main
+[user]
+	email = matthieu.eschbach@gmail.com
+	name = Ronces

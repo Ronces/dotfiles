@@ -44,21 +44,18 @@ export ZSH=$HOME/.dotfiles
 echo "› git pull"
 git -C $ZSH pull
 
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
+# Upgrade 
+echo "› apt update"
+sudo apt update
+echo "› snap update"
+sudo snap update
+echo ""
 
-# Set macOS hostname
-$ZSH/macos/set-hostname.sh
-
-# Install homebrew
-$ZSH/homebrew/install.sh 2>&1
-
-# Upgrade homebrew
-echo "› brew update"
-brew update
-
-echo "› brew upgrade"
-brew upgrade
+echo "› apt upgrade"
+sudo apt upgrade
+echo "› snap upgrade"
+sudo snap upgrade
+echo ""
 
 # Install software
 echo "› script/install"
