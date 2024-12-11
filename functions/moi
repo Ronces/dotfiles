@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Usage: moi
+# Description: Show local ips address by interface
+
+function moi () {
+    ip addr show | awk '/^[0-9]+: / {
+        interface=$2
+    }
+    /inet / {
+        print interface, $2
+    }'
+}
