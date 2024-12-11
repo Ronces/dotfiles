@@ -6,6 +6,8 @@ alias tlf="tail -f"
 
 alias mkdir='mkdir -p'
 
+alias ffs='sudo !!' # rerun previous command with sudo
+
 # LS
 alias l='ls --color=auto'
 alias ll='ls -al'
