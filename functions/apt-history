@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Shows the last installed package from history
+
+function apt-history () {
+zgrep -Pho '^Commandline: apt install (?!.*--reinstall)\K.*' /var/log/apt/history.log
+}

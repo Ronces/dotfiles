@@ -20,6 +20,7 @@ alias f=fuck
 
 # Easier navigation
 alias ..='cd ..'
+alias cd..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
@@ -32,3 +33,6 @@ alias sc="cd ~/Informatique/Securite"
 alias mv="mv -v"
 alias cp="cp -v"
 alias rm='rm -v -i'
+
+# Network
+alias wget='wget -c'
