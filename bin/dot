@@ -38,25 +38,21 @@ while test $# -gt 0; do
 	shift
 done
 
-export ZSH=$HOME/.dotfiles
+export DOT=$HOME/.dotfiles
 
 # Update dotfiles themselves
 echo "› git pull"
-git -C $ZSH pull
+git -C $DOT pull
 
 # Upgrade 
 echo "› apt update"
 sudo apt update
-echo "› snap update"
-sudo snap update
 echo ""
 
 echo "› apt upgrade"
 sudo apt upgrade
-echo "› snap upgrade"
-sudo snap upgrade
 echo ""
 
 # Install software
 echo "› script/install"
-$ZSH/script/install
+$DOT/script/install
