@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Use : mcd [directory]
+# Description : Create a nex directory and enter it
+
+function mcd () {
+mkdir -p "$@" && cd "$_";
+}

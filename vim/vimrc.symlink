@@ -1,0 +1,273 @@
+"
+"     
+"               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"               ██║   ██║██║██╔████╔██║██████╔╝██║     
+"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"               
+
+"       I.....General
+"       II....User interface
+"       III...Colors and Fonts
+"       IV....Backups and undo
+"       V.....Search
+"       VI....Text, tab and indent related 
+"       VII...Folding
+"       VIII..Plugins
+"       IX....Mapping
+"       X.....Commands
+
+""""""""""""""""""""""""""""""""""""""""""
+" I. General
+""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible   " We're running Vim, not Vi!
+set history=50     " Sets how many lines of history VIM has to remember0
+filetype on        " Enable filetype detection
+filetype plugin on " Enable and load plugins for the detected file type
+filetype indent on " Indent file for the detected file type
+
+let mapleader = "," " For extra key combinations
+
+""""""""""""""""""""""""""""""""""""""""""
+" II. User interface
+""""""""""""""""""""""""""""""""""""""""""
+
+set so=5                            " Set 5 lines to the cursor - when moving vertically using j/k
+set ruler                           " Always show current position
+set hid                             " A buffer becomes hidden when it is abandoned
+set number                          " Add numbers to each line on the left-hand side.
+set autoread                        " Set to auto read when a file is changed from the outside
+set wildmenu                        " Turn on the Wild menu
+set wildmode=list:longest,list:full " Make wildmenu behave like similar to Bash completion.
+set lazyredraw                      " Don't redraw while executing macros (good performance config)
+set magic                           " For regular expressions turn magic on
+set showmatch                       " Show matching brackets when text indicator is over them
+set mat=2                           " How many tenths of a second to blink when matching brackets
+set backspace=indent,eol,start      " Backspace acts as it should act
+set whichwrap+=<,>,h,l,[,]          " Move to the previous/next line after reaching first/last character in the line
+set showcmd                         " Les commandes tapées apparaissent dans le bandeau inferieur
+set mouse=a                         " a = "All modes"
+
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
+
+""""""""""""""""""""""""""""""""""""""""""
+" III.  Colors and Fonts
+""""""""""""""""""""""""""""""""""""""""""
+
+syntax on
+
+" True colors in vim
+set termguicolors
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+
+" colorecting colorscheme
+set t_Co=256
+set clipboard=unnamed
+
+set encoding=utf-8   " Set utf8 as standard encoding and en_US as the standard language
+set ffs=unix,dos,mac " Use Unix as the standard file type                               "
+
+""""""""""""""""""""""""""""""""""""""""""
+" IV. Backups and undo
+"""""""""""""""""""""""""""""""""""""""""""
+
+" Persistent undo !
+set undofile                       " turn on the feature
+set undodir=$HOME/.vim/backup/undo " directory where the undo files will be stored.
+
+""""""""""""""""""""""""""""""""""""""""""
+" V. Search
+""""""""""""""""""""""""""""""""""""""""""
+
+set ignorecase " Ignore case when searching
+set smartcase  " When searching try to be smart about cases
+set hlsearch   " Highlight search results
+set incsearch  " Makes search act like search in modern browsers
+
+ " Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
+
+"Search fw for current selection
+"nnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+"Search bw for current selection
+"nnoremap <silent> ù :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR> 
+
+""""""""""""""""""""""""""""""""""""""""""
+" VI. Text, tab and indent related
+""""""""""""""""""""""""""""""""""""""""""
+
+set expandtab     " Use spaces instead of tabs
+set smarttab      " Be smart when using tabs
+set shiftwidth=2  " 1 tab == 2 spaces
+set softtabstop=2 " 1 tab == 2 spaces
+set lbr           " Line break at ...
+set tw:1000       " ... characters             "
+set wrap          " Wrap lines
+set autoindent
+set smartindent
+
+""""""""""""""""""""""""""""""""""""""""""
+" VII. Folding
+""""""""""""""""""""""""""""""""""""""""""
+
+set foldmethod=manual
+set foldnestmax=10
+set foldlevel =100
+set foldcolumn=1 " Add a bit extra margin to the left
+set nofoldenable
+
+""""""""""""""""""""""""""""""""""""""""""
+" VIII. Pluggins
+""""""""""""""""""""""""""""""""""""""""""
+
+if has('nvim')
+  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEntMoving around tabs, windows and bufferser * PlugInstall --sync | source $MYVIMRC
+  endif
+else
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Basics
+Plug 'godlygeek/tabular'
+Plug 'preservim/nerdtree'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'sheerun/vim-polyglot'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-abolish'
+Plug 'easymotion/vim-easymotion'
+Plug 'lifepillar/vim-solarized8'
+Plug 'vim-airline/vim-airline'
+Plug 'honza/vim-snippets'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'dhruvasagar/vim-zoom'
+Plug 'mechatroner/rainbow_csv'
+Plug 'kshenoy/vim-signature'
+Plug 'rhysd/vim-grammarous'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'Raimondi/delimitMate'
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'mattn/gist-vim'
+
+" Web
+"Plug 'mattn/webapi-vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'hail2u/vim-css3-syntax'
+"Plug 'HerringtonDarkholme/yats.vim'
+
+" Markdown
+Plug 'preservim/vim-markdown'
+"Plug 'brielelana/vim-markdown', {'as': 'brielelana-vim-markdown'}
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
+
+call plug#end()
+
+" ---- AIRLINE
+
+set laststatus=2
+let g:airline_powerline_fonts = 1
+
+set background=dark " dark | light "
+colorscheme solarized8
+
+ " ---- ALE
+
+let g:ale_fixers                    = {}
+let g:ale_fixers['ruby']            = ['rubocop', 'prettier']
+let g:ale_fixers['rake']            = ['rubocop', 'prettier']
+let g:ale_fixers['json']            = ['prettier']
+let g:ale_fixers['jsonc']           = ['prettier']
+let g:ale_fixers['javascript']      = ['eslint']
+let g:ale_fixers['javascriptreact'] = ['eslint']
+let g:ale_fixers['typescript']      = ['eslint']
+let g:ale_fixers['typescriptreact'] = ['eslint']
+let g:ale_fixers['markdown']        = ['prettier']
+let g:ale_fixers['json']            = ['prettier']
+let g:ale_fixers['tex']             = ['textlint']
+let g:ale_fix_on_save               = 1
+let g:ale_ruby_rubocop_executable   = 'bundle'
+ 
+
+
+ " ---- PRESERVIM
+
+
+""""""""""""""""""""""""""""""""""""""""""
+" IX. Remaping
+""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <F5> :ALEFix<CR>
+nnoremap <F6> :lw<CR>
+nnoremap <F7> :lcl<CR>
+nnoremap <F8> :call LanguageClient_contextMenu()<CR>
+
+nnoremap <Space> za
+
+" Tabs
+nnoremap ¬      :tabnext<CR>
+nnoremap ˙      :tabprevious<CR>
+nnoremap <C-t>  :tabnew<CR> 
+inoremap ¬      <Esc>:tabnext<CR>i
+inoremap ˙      <Esc>:tabprevious<CR>i
+inoremap <C-t>  <Esc>:tabnew<CR>
+nnoremap <Space> za
+
+" Fast saving
+nnoremap <leader>w :w<cr>
+inoremap <leader>w <Esc>:w<cr>a
+
+" Vimrc
+nnoremap  <leader>v :edit   $MYVIMRC<CR>
+nnoremap  <leader>u :source $MYVIMRC<CR>
+
+" Quick Insert
+nnoremap <leader>i i[important] <Esc>
+inoremap <leader>i [important] 
+
+nnoremap <leader>t i[TODO] <Esc>
+inoremap <leader>t [TODO] 
+
+" Misc
+nnoremap <leader>n :NERDTreeToggle<cr>
+
+nnoremap <leader>pp :setlocal paste!<cr>
+
+nnoremap <leader><cr> o0
+inoremap <leader><cr> <esc>o0i
+
+""""""""""""""""""""""""""""""""""""""""""
+" X. Commands
+""""""""""""""""""""""""""""""""""""""""""
+
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit! " :W sudo saves the file with su
+
+"autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype markdown setlocal spell spelllang=fr
+autocmd Filetype markdown hi SpellBad cterm=underline ctermfg=red
+
