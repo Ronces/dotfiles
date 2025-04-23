@@ -55,7 +55,6 @@ plugins=(
 	you-should-use
 	zsh-bat
 	z
-	fz
 )
 
 ###########################

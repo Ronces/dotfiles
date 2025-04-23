@@ -8,10 +8,10 @@ themes="$HOME/.oh-my-zsh/custom/themes"
 
 # PLUGINS
 
-git clone --depth 1 https://github.com/junegunn/fzf.git $plugins/fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git $plugins/fzf && sudo apt install fzf
+git clone https://github.com/fdellwing/zsh-bat.git $plugins/zsh-bat && sudo apt install bat
 git clone https://github.com/jhwohlgemuth/zsh-pentest.git $plugins/zsh-pentest
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $plugins/you-should-use
-git clone https://github.com/fdellwing/zsh-bat.git $plugins/zsh-bat
 
 # THEMES
 
