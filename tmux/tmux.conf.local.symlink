@@ -14,11 +14,6 @@
 #   - false (default)
 tmux_conf_preserve_stock_bindings=false
 
-# split current window horizontally
-bind _ split-window -v
-# split current window vertically
-bind - split-window -h
-
 # -- session creation ----------------------------------------------------------
 
 # prompt for session name when creating a new session, possible values are:
@@ -390,12 +385,17 @@ set -g mouse on
 #set -g status-keys vi
 #set -g mode-keys vi
 
+# split current window horizontally
+bind _ split-window -v
+# split current window vertically
+bind - split-window -h
+
 # replace C-b by C-q and keep C-a (don't forget to remap tab key on Ctrl too)
- set -gu prefix2
- unbind C-q
- unbind C-b
- set -g prefix C-q
- bind C-q send-prefix
+set -gu prefix2
+unbind C-q
+unbind C-b
+set -g prefix C-q
+bind C-q send-prefix
 
 # if you don't want Oh my tmux! to alter a binding, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
