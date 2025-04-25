@@ -19,7 +19,7 @@ install_plugin() {
     local plugin_name=$2
     local package_name=$3
 
-    if ! [ -d $plugins/plugin_name ]; then
+    if ! [ -d $plugins/$plugin_name ]; then
         git clone --depth 1 "$repo_url" "$plugins/$plugin_name"
     else
         echo "plugin $plugin_name already installed"
