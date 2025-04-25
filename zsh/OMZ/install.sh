@@ -1,18 +1,57 @@
-#! /bin/sh
+#! /bin/zsh
 
-echo "install oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "> install oh-my-zsh"
+
+if ! [ -d $HOME/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  echo "OMZ already installed"
+fi
 
 plugins="$HOME/.oh-my-zsh/custom/plugins"
 themes="$HOME/.oh-my-zsh/custom/themes"
 
 # PLUGINS
 
-git clone --depth 1 https://github.com/junegunn/fzf.git $plugins/fzf && sudo apt install fzf
-git clone https://github.com/fdellwing/zsh-bat.git $plugins/zsh-bat && sudo apt install bat
-git clone https://github.com/jhwohlgemuth/zsh-pentest.git $plugins/zsh-pentest
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $plugins/you-should-use
+# Fonction pour cloner un dépôt GitHub et installer un paquet si nécessaire
+install_plugin() {
+    local repo_url=$1
+    local plugin_name=$2
+    local package_name=$3
+
+    if ! [ -d $plugins/plugin_name ]; then
+        git clone --depth 1 "$repo_url" "$plugins/$plugin_name"
+    else
+        echo "plugin $plugin_name already installed"
+    fi
+
+    if [[ -n "$package_name" ]]; then
+        sudo apt install -y "$package_name"
+    fi
+}
+
+# Liste des plugins à installer
+typeset -A plugins_to_install
+plugins_to_install=(
+    "fzf"          "https://github.com/junegunn/fzf.git fzf"
+    "zsh-bat"      "https://github.com/fdellwing/zsh-bat.git bat"
+    "zsh-pentest"  "https://github.com/jhwohlgemuth/zsh-pentest.git"
+    "you-should-use" "https://github.com/MichaelAquilina/zsh-you-should-use.git"
+)
+
+# Installer chaque plugin
+echo "> custom plugins installation"
+for plugin_name package_info in ${(kv)plugins_to_install}; do
+    repo_url=$(echo "$package_info" | awk '{print $1}')
+    package_name=$(echo "$package_info" | awk '{print $2}')
+
+    install_plugin "$repo_url" "$plugin_name" "$package_name"
+done
+
+echo "Installation done"
 
 # THEMES
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $themes/powerlevel10k
+if ! [ -d $themes/powerlevel10k ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $themes/powerlevel10k
+fi
