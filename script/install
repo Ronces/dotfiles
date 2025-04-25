@@ -8,7 +8,16 @@ cd "$(dirname $0)"/..
 
 
 # update
+echo "› apt update"
 sudo apt update
+echo ""
+
+# upgrade
+echo "› apt upgrade"
+sudo apt upgrade
+echo ""
 
 # find the installers and run them iteratively
 find . -name install.sh | sort |  while read installer ; do sh -c "${installer}" ; done
+
+echo "Installation done"

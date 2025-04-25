@@ -1,12 +1,13 @@
 #! /bin/zsh
 
-echo "> install oh-my-zsh"
+echo "› Install oh-my-zsh"
 
 if ! [ -d $HOME/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
   echo "OMZ already installed"
 fi
+echo ""
 
 plugins="$HOME/.oh-my-zsh/custom/plugins"
 themes="$HOME/.oh-my-zsh/custom/themes"
@@ -40,7 +41,7 @@ plugins_to_install=(
 )
 
 # Installer chaque plugin
-echo "> custom plugins installation"
+echo "› Install custom plugins"
 for plugin_name package_info in ${(kv)plugins_to_install}; do
     repo_url=$(echo "$package_info" | awk '{print $1}')
     package_name=$(echo "$package_info" | awk '{print $2}')
@@ -48,10 +49,14 @@ for plugin_name package_info in ${(kv)plugins_to_install}; do
     install_plugin "$repo_url" "$plugin_name" "$package_name"
 done
 
-echo "Installation done"
+
+echo ""
 
 # THEMES
-
+echo "› Install custom themes"
 if ! [ -d $themes/powerlevel10k ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $themes/powerlevel10k
+else
+    echo "powerlevel10k already installed"
 fi
+echo ""

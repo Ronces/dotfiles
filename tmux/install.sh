@@ -1,6 +1,8 @@
 #!/bin/sh
 
+echo "› Install tmux"
 sudo apt install tmux
+echo ""
 
 #if [[-d ~/.tmux]]; then
 #  rm -rf ~/.tmux

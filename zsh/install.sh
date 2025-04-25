@@ -1,4 +1,5 @@
 #! /bin/sh
 
-echo "install zsh"
+echo "› Install zsh"
 sudo apt install zsh
+echo ""
