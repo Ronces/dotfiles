@@ -96,8 +96,8 @@ done
 unset config_files
 
 # add bin's stuff to path
-path+=('~/.dotfiles/bin')
-export PATH
+#path+=('~/.dotfiles/bin')
+#export PATH
 ###########################
 # Source PowerLevel
 ###########################

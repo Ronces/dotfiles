@@ -36,3 +36,6 @@ alias rm='rm -v -i'
 
 # Network
 alias wget='wget -c'
+
+# PATH
+alias PATH="echo $PATH | tr ':' '\n'"
