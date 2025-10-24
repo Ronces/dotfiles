@@ -19,10 +19,10 @@ fi
 echo ""
 
 echo "› Install vim plugins"
-vim +'PlugUpgrade --sync' +qa
+ex +'PlugUpgrade --sync' +qa
 echo "Plug up to date"
-vim +'PlugInstall --sync' +qa
+ex +'PlugInstall --sync' +qa
 echo "Plugins installed"
-vim +'PlugUpdate --sync' +qa
+ex +'PlugUpdate --sync' +qa
 echo "Plugins up to date"
 
