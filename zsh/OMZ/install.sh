@@ -2,11 +2,11 @@
 
 echo "› Install oh-my-zsh"
 
-if ! [ -d $HOME/.oh-my-zsh ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-  echo "OMZ already installed"
+if  [ -d $HOME/.oh-my-zsh ]; then
+  rm -rf "$HOME/.oh-my-zsh"
 fi
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo ""
 
 plugins="$HOME/.oh-my-zsh/custom/plugins"

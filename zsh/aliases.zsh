@@ -39,3 +39,9 @@ alias wget='wget -c'
 
 # PATH
 alias PATH="echo $PATH | tr ':' '\n'"
+
+# dépannage
+
+#alias rplasma="sudo systemctl restart sddm"
+alias rplasma="kwin_wayland --replace &"
+
