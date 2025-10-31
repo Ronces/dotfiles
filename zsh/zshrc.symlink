@@ -42,18 +42,18 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
 	git
-#	thefuck
+	thefuck
 	aliases
-#	fzf
+	fzf
 	colored-man-pages
-#	zsh-pentest
+	zsh-pentest
 	nmap
 #	quiver
-#	virtualenv
+	virtualenv
 	tmux
 	web-search
-#	you-should-use
-#	zsh-bat
+	you-should-use
+	zsh-bat
 	z
 )
 
@@ -110,3 +110,8 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/OMZ/custom/themes/p10k/p10k.zsh.symlink.
 [[ ! -f ~/.dotfiles/zsh/OMZ/custom/themes/p10k/p10k.zsh.symlink ]] || source ~/.dotfiles/zsh/OMZ/custom/themes/p10k/p10k.zsh.symlink
+
+# Created by `pipx` on 2025-10-28 05:48:56
+export PATH="$PATH:/home/matthieu/.local/bin"
+
+eval $(thefuck --alias)

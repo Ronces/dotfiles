@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "› Install tmux"
-sudo apt install tmux
+sudo snap install tmux
 
 if [ -d ~/.tmux ]; then
   rm -rf ~/.tmux
