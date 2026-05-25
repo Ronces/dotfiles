@@ -34,9 +34,6 @@ alias mv="mv -v"
 alias cp="cp -v"
 alias rm='rm -v -i'
 
-# Network
-alias wget='wget -c'
-
 # PATH
 alias PATH="echo $PATH | tr ':' '\n'"
 
@@ -45,3 +42,11 @@ alias PATH="echo $PATH | tr ':' '\n'"
 #alias rplasma="sudo systemctl restart sddm"
 alias rplasma="kwin_wayland --replace &"
 
+# network
+
+alias rnetwork="sudo NetworkManager service start && sudo service avahi-daemon start && sudo wpa_supplicant service start" 
+alias wget='wget -c'
+
+# xclip
+
+alias CC="xclip -sel c <"
